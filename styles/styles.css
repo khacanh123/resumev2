@@ -1,0 +1,425 @@
+.main-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    background: #FFF;
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+    transition: all .375s;
+}
+
+.main-nav.is-open {
+    opacity: 1;
+    z-index: 100;
+    visibility: visible;
+}
+
+
+/* Yellow band effect */
+
+.main-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -15px;
+    background: #FEDC2A;
+    transform-origin: 0 0;
+    transform: skew(-14deg) translateX(-120%);
+    transition: all .275s .1s;
+}
+
+.main-nav.is-open::before {
+    transform: skew(-14deg) translateX(0);
+}
+
+
+/* Skewing effect on menu links */
+
+.main-nav ul {
+    display: inline-flex;
+    flex-direction: column;
+    height: 93%;
+    /* Should be 100%, but we have a notice message :D */
+    align-items: flex-end;
+    justify-content: center;
+    transform: translateX(-18%) skew(-16deg);
+}
+
+.main-nav li {
+    display: block;
+    margin: .5rem 0;
+    text-align: right;
+    transform: skew(16deg);
+}
+
+
+/* Apparition effect on links */
+
+.main-nav a {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.main-nav.is-open a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.main-nav li:nth-child(1) a {
+    transition: all 275ms 175ms
+}
+
+.main-nav li:nth-child(2) a {
+    transition: all 275ms 225ms
+}
+
+.main-nav li:nth-child(3) a {
+    transition: all 275ms 275ms
+}
+
+.main-nav li:nth-child(4) a {
+    transition: all 275ms 325ms
+}
+
+.main-nav li:nth-child(5) a {
+    transition: all 275ms 375ms
+}
+
+
+/* Decoration */
+
+.main-nav ul,
+.main-nav li {
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav a {
+    display: block;
+    padding: 12px 0;
+    color: #5A3B5D;
+    font-size: 1.4em;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Burger Style: @see: https://codepen.io/CreativeJuiz/full/oMZNXy */
+
+.open-main-nav {
+    position: absolute;
+    padding-top: 20px;
+    right: 35px;
+    z-index: 1000;
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.open-main-nav:focus {
+    outline: none;
+}
+
+.burger {
+    position: relative;
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 0 auto;
+    background: #5A3B5D;
+    transform: skew(5deg);
+    transition: all .275s;
+}
+
+.burger:after,
+.burger:before {
+    content: '';
+    display: block;
+    height: 100%;
+    background: #5A3B5D;
+    transition: all .275s;
+}
+
+.burger:after {
+    transform: translateY(-12px) translateX(-2px) skew(-20deg);
+}
+
+.burger:before {
+    transform: translateY(-16px) skew(-10deg);
+}
+
+
+/* Toggle State part */
+
+.is-open .burger {
+    transform: skew(5deg) translateY(-8px) rotate(-45deg);
+}
+
+.is-open .burger:before {
+    transform: translateY(0px) skew(-10deg) rotate(75deg);
+}
+
+.is-open .burger:after {
+    transform: translateY(-12px) translateX(10px) skew(-20deg);
+    opacity: 0;
+}
+
+
+/* MENU Text part */
+
+.burger-text {
+    display: block;
+    font-size: .675rem;
+    letter-spacing: .05em;
+    margin-top: .5em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    color: #5A3B5D;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #eee, #ddd);
+}
+
+.show-ff {
+    display: block !important;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes avatar {
+    0% {
+        transform: translate(30px, -20px)
+    }
+    50% {
+        transform: translate(20px)
+    }
+    to {
+        transform: translate(30px, -20px)
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .rotateInfinite {
+        animation: App-logo-spin infinite 30s linear;
+    }
+}
+
+.avatarMe {
+    animation: avatar 7s ease-in-out infinite;
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: left
+    }
+    50% {
+        background-position: right
+    }
+    to {
+        background-position: left
+    }
+}
+
+.gradient-text:hover {
+    color: linear-gradient(80deg, crimson, pink, #1d53ff);
+}
+
+.active.fade-left {
+    animation: fade-left 1s ease-in;
+}
+
+.active.fade-right {
+    animation: fade-right 1s ease-in;
+}
+
+@keyframes fade-left {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.slide-down:hover .target {
+    transform: translateY(4px)
+}
+
+.cate-knowedge:hover>.bg-shutdown {
+    top: 0
+}
+
+@keyframes fade-right {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.jump-container:hover>a .jump {
+    -webkit-animation: bounce .6s cubic-bezier(.175, .885, .32, 1.275);
+    animation: bounce .6s cubic-bezier(.175, .885, .32, 1.275)
+}
+
+.jump-container:hover>a .jump .iconz {
+    -webkit-animation: jump .6s cubic-bezier(.175, .885, .32, 1.275);
+    animation: jump .6s cubic-bezier(.175, .885, .32, 1.275)
+}
+
+.cate-knowedge:hover>.bg-shutdown {
+    top: 0
+}
+
+.gradient-text {
+    background: linear-gradient(80deg, crimson, pink, #1d53ff);
+    background-size: 200% 200%;
+    -webkit-animation: rainbow 2s ease-in-out infinite;
+    animation: rainbow 2s ease-in-out infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: inherit;
+    transition: color .2s ease-in-out
+}
+
+.gradient-text:hover {
+    color: #0000
+}
+
+.gradient-text-auto {
+    background: linear-gradient(80deg, crimson, pink, #1d53ff);
+    background-size: 200% 200%;
+    -webkit-animation: rainbow 2s ease-in-out infinite;
+    animation: rainbow 2s ease-in-out infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: inherit;
+    transition: color .2s ease-in-out;
+    color: #0000
+}
+
+@-webkit-keyframes rainbow {
+    0% {
+        background-position: left
+    }
+    50% {
+        background-position: right
+    }
+    to {
+        background-position: left
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: left
+    }
+    50% {
+        background-position: right
+    }
+    to {
+        background-position: left
+    }
+}
+
+@-webkit-keyframes bounce {
+    0% {
+        padding: 16px
+    }
+    50% {
+        padding: 12px
+    }
+    to {
+        padding: 16px
+    }
+}
+
+@keyframes bounce {
+    0% {
+        padding: 16px
+    }
+    50% {
+        padding: 12px
+    }
+    to {
+        padding: 16px
+    }
+}
+
+@-webkit-keyframes jump {
+    0% {
+        transform: translateY(0)
+    }
+    50% {
+        transform: translateY(-50px)
+    }
+    to {
+        transform: translateY(0)
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0)
+    }
+    50% {
+        transform: translateY(-50px)
+    }
+    to {
+        transform: translateY(0)
+    }
+}
+
+@-webkit-keyframes avatar {
+    0% {
+        transform: translate(30px, -20px)
+    }
+    50% {
+        transform: translate(20px)
+    }
+    to {
+        transform: translate(30px, -20px)
+    }
+}
