@@ -1,5 +1,6 @@
 import { Blockquote } from "@mantine/core";
-
+import avt from "assets/avt.jpg";
+import Image from "next/image";
 function reveal() {
   var reveals = document.querySelectorAll(".reveal");
 
@@ -161,9 +162,9 @@ function IntroComponent() {
               src="/assets/hero__text-icon.c9dc4275.svg"
               alt=""
             />
-            <img
+            <Image
               className="avatarMe w-full lg:min-w-[350px] rounded-[50px] border-2 border-ct-primary-500 absolute -top-10 dark:shadow-[0px_0px_30px_0px] dark:shadow-ct-primary-500"
-              src="https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/308513986_1767917436893504_3894080317395708386_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=174925&_nc_ohc=6PWSLfnThEsAX_wpBh7&_nc_ht=scontent.fhan18-1.fna&oh=00_AfCM2RFjLyMHnBa04H_VTaO8daAteX4nF2BGWfrxEkbPLQ&oe=63C5C126"
+              src={avt}
               alt=""
             />
           </div>
