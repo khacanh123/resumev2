@@ -238,7 +238,7 @@ some other tasks.
               <tr>
                 <td className="font-bold whitespace-nowrap">Technologies</td>
                 <td>
-                <a href={dataById?.link} className="text-ct-primary-500">{dataById?.technologies}</a>
+                <div>{dataById?.technologies}</div>
                   
                 </td>
               </tr>
