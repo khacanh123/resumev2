@@ -235,6 +235,13 @@ some other tasks.
                   <div className="uppercase">{dataById?.company}</div>
                 </td>
               </tr>
+              <tr>
+                <td className="font-bold whitespace-nowrap">Technologies</td>
+                <td>
+                <a href={dataById?.link} className="text-ct-primary-500">{dataById?.technologies}</a>
+                  
+                </td>
+              </tr>
              {
               dataById?.hasOwnProperty('link') && (
                 <tr>
