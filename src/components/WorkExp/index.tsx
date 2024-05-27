@@ -42,7 +42,7 @@ function WorkExpComponent() {
       platform. Features include course viewing and enrollment functionalities, allowing users to
       access and register for relevant courses.`,
       customer: "IKI User",
-      access: 1,
+      access: 2,
       position: 'Frontend Developer',
       technologies: 'ReactJS Typescript, redux-toolkit, TailwindCSS, MantineUI, axios ...',
       task: "<li>Implement the UI/UX follow the design.</li> <li>Edit theme wordpress</li>",
@@ -58,7 +58,7 @@ HSA, TSA and IELTS exam sites. The project helps administrators manage questions
 some other tasks.
       `,
       customer: "Admin HOCMAI",
-      access: 1,
+      access: 3,
       position: 'Frontend Developer',
       technologies: 'ReactJS Typescript, redux-toolkit, TailwindCSS, MantineUI, axios ...',
       task: "<li>Implement the UI/UX follow the design.</li> <li>Perform the tasks based on the Agile Scrum model and has fully reported to the Scrum Team.</li>",
@@ -73,7 +73,7 @@ some other tasks.
       experiences.
       `,
       customer: "HOCMAI User",
-      access: 1,
+      access: 3,
       position: 'Frontend Developer',
       technologies: 'NextJS Typescript, redux-toolkit, TailwindCSS, MantineUI, axios ...',
       task: "<li>Implement the UI/UX follow the design.</li> <li>build the web application according to the design and customer requirements.</li>",
