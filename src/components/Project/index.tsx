@@ -1,26 +1,42 @@
 import { Modal, Table } from "@mantine/core";
 import firebase from "@/components/firebase";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
-function ProjectComponent() {
+function WorkExpComponent() {
   const [opened, setOpened] = useState({
     opened: false,
     id: "",
   });
-  const [todoList, setTodoList] = useState<any>([]);
+  const [todoList, setTodoList] = useState<any>([
+    {
+      id: "1",
+      name: "IKIGROUP",
+      time: "12/2023 - 05/2024",
+      link_img: "https://ikigroup.vn/templates/default/images/logo.png",
+      Domain: "Education",
+      access: 3,
+      position: 'Frontend Developer',
+      technologies: 'ReactJS, Wordpress',
+      task: "<li>Implement the UI/UX follow the design. Build the web application according to the design and customer requirements.</li> <li>Perform the tasks based on the Agile Scrum model and has fully reported to the Scrum Team.</li><li>Clean code & fix bug</li>",
+      company: "IKIGROUP",
+      link: "https://ikigroup.vn"
+    }, 
+    {
+      id: "2",
+      name: "HE THONG GIAO DUC HOCMAI",
+      time: "01/2022 - 11/2023",
+      link_img: "https://huongnghiep.hocmai.vn/wp-content/uploads/2021/11/Logo-hocmai-1-1.png",
+      Domain: "Education",
+      access: 2,
+      position: 'Frontend Developer',
+      technologies: 'ReactJS, Wordpress',
+      task: "<li>Implement the UI/UX follow the design. Build the web application according to the design and customer requirements.</li> <li>Perform the tasks based on the Agile Scrum model and has fully reported to the Scrum Team.</li><li>Clean code & fix bug</li>",
+      company: "IKIGROUP",
+      link: "https://hocmai.vn"
+    }, 
+     
+  ]);
   const [dataById, setDataById] = useState<any>({});
-  useEffect(() => {
-    const todoRef = firebase.database().ref("project");
-    todoRef.on("value", (snapshot) => {
-      const todos = snapshot.val();
-      const todoList = [];
-      for (let id in todos) {
-        todoList.push({ id, ...todos[id] });
-      }
-      setTodoList(todoList);
-    });
-  }, []);
   function reveal() {
     var reveals = document.querySelectorAll(".reveal");
 
@@ -38,35 +54,30 @@ function ProjectComponent() {
   }
 
   if (typeof window !== "undefined") window.addEventListener("scroll", reveal);
-  useEffect(() => {
-    if (opened.id !== "") {
-      const todoRef = firebase.database().ref("project").child(opened.id);
-      //   console.log(todoRef);
-      todoRef.on("value", (snapshot) => {
-        const todos = snapshot.val();
-        setDataById(todos);
-      });
-    }
-  }, [opened.id]);
+  // useEffect(() => {
+  //   if (opened.id !== "") {
+  //     setDataById(todoList.filter((item: any) => item.id == opened.id))
+  //   }
+  // }, [opened.id]);
   return (
     <>
       <div className="w-full px-4" id="project">
         <div className="w-full my-12 lg:my-20">
-          <p className="font-bold text-[34px] lg:text-[50px] text-center gradient-text">
-            Time and tide waits for no man.
-            <br />
-            My personal project below
+          <p className="font-bold text-[34px] lg:text-[50px] text-white text-center gradient-text">
+          Time and tide waits for no man. <br /> {`
+My personal project below`}
           </p>
-          <p className="text-xl text-center mt-5 px-5">
-            {`Don't let time be wasted. I'm always up to date with new technology and find cool stuff that you might like`}
-          </p>
+          <p className="text-xl text-center mt-5 px-5 !text-white">
+          Don't let time be wasted. I'm always up to date with new technology and find cool stuff that you might like
+           </p>
         </div>
-        <div className="w-full flex flex-wrap justify-center reveal fade-right">
+        <div className="w-full flex flex-wrap justify-center reveal">
           {todoList &&
             todoList.map((key: any, index: number) => (
               <>
                 <div
-                  onClick={() =>
+                  onClick={() => {
+
                     setOpened((pre) => {
                       return {
                         ...pre,
@@ -74,17 +85,19 @@ function ProjectComponent() {
                         id: key.id,
                       };
                     })
+                    setDataById(key)
+                  }
                   }
                 >
-                  <div className="w-full flex flex-wrap justify-center cursor-pointer">
-                    <div className="project h-[300px] w-[250px] p-6 m-4 border-t-2 border-ct-primary-500 hover:text-white hover:bg-ct-primary-500 dark:bg-ct-dark-secondary-400 dark:hover:bg-ct-primary-500 bg-ct-neutral-100 flex flex-wrap justify-between transition-all">
+                  <div className="w-full flex flex-wrap justify-center cursor-pointer" key={index}>
+                    <div className="project h-[300px] w-[250px] p-6 m-4 border-t-2 border-ct-primary-500 text-white hover:text-white hover:bg-ct-primary-500 dark:bg-ct-dark-secondary-400 dark:hover:bg-ct-primary-500 bg-ct-neutral-100 flex flex-wrap justify-between transition-all">
                       <h1 className="uppercase font-bold text-xl">
                         {key.name}
                       </h1>
-                      <div
-                        dangerouslySetInnerHTML={{ __html: key.description }}
-                        className="line-clamp-3 whitespace-pre-wrap h-fit"
-                      ></div>
+                      <div className="flex justify-center items-center w-full">
+
+                     <img src={key.link_img} className="h-16"/>
+                      </div>
                       <svg
                         className="self-end"
                         xmlns="http://www.w3.org/2000/svg"
@@ -116,51 +129,58 @@ function ProjectComponent() {
             };
           })
         }
+        withCloseButton
         size="xl"
       >
         <div className="md:p-10">
-          <h1 className="uppercase font-bold text-xl">{dataById.name}</h1>
+          <h1 className="uppercase font-bold text-xl">{dataById?.name}</h1>
+          <p className="pb-4">({dataById?.time})</p>
           <Table>
             <tbody>
               <tr>
-                <td className="font-bold whitespace-nowrap">Project name</td>
+                <td className="font-bold whitespace-nowrap">Domain</td>
                 <td>
-                  {" "}
-                  <div>{dataById.name}</div>
+                  <div>{dataById?.domain}</div>
                 </td>
               </tr>
               <tr>
-                <td className="font-bold whitespace-nowrap">Description</td>
+                <td className="font-bold whitespace-nowrap">Time</td>
+                <td>
+                  <div>({dataById?.time})</div>
+                </td>
+              </tr>
+              <tr>
+                <td className="font-bold whitespace-nowrap">Project</td>
+                <td>
+                  <div>{dataById?.access}</div>
+                </td>
+              </tr>
+              <tr>
+                <td className="font-bold whitespace-nowrap">My position</td>
+                <td>
+                  <div>{dataById?.position}</div>
+                </td>
+              </tr>
+              <tr>
+                <td className="font-bold whitespace-nowrap">
+                  My responsibilities
+                </td>
                 <td>
                   <div
-                    dangerouslySetInnerHTML={{ __html: dataById.description }}
-                    className="line-clamp-3 whitespace-pre-wrap h-fit"
+                    dangerouslySetInnerHTML={{ __html: dataById?.task }}
                   ></div>
                 </td>
               </tr>
-              <tr>
-                <td className="font-bold whitespace-nowrap">Source code</td>
+             {
+              dataById?.hasOwnProperty('link') && (
+                <tr>
+                <td className="font-bold whitespace-nowrap">Website</td>
                 <td>
-                  {" "}
-                  <div>
-                    <Link
-                      className="text-ct-primary-500"
-                      href={dataById.position}
-                      target="_blank"
-                    >
-                      {dataById.position}
-                    </Link>
-                  </div>
+                  <a href={dataById?.link} className="text-ct-primary-500">{dataById?.link}</a>
                 </td>
               </tr>
-
-              <tr>
-                <td className="font-bold whitespace-nowrap">Technologies</td>
-                <td>
-                  {" "}
-                  <div>{dataById.technologies}</div>
-                </td>
-              </tr>
+              )
+             }
             </tbody>
           </Table>
         </div>
@@ -169,4 +189,4 @@ function ProjectComponent() {
   );
 }
 
-export default ProjectComponent;
+export default WorkExpComponent;

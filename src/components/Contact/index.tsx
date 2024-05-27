@@ -4,7 +4,7 @@ function ContactPage() {
     <>
       <div
         id="contact"
-        className="w-full h-full lg:h-screen bg-ct-secondary-400 dark:bg-ct-dark-secondary-400 md:flex flex-col relative"
+        className="w-full h-full lg:h-screen bg-[#1c2b50] dark:bg-ct-dark-secondary-400 md:flex flex-col relative"
         style={{ clipPath: "ellipse(90% 53% at 50% 61%)" }}
       >
         <div className="pt-[200px] flex w-full h-min justify-center mx-auto text-ct-primary-400 dark:text-ct-neutral-100">
@@ -125,7 +125,7 @@ function ContactPage() {
         </div>
         <div className="flex justify-center items-center flex-wrap mt-10 lg:mt-20">
           <div className="w-full lg:w-1/2">
-            <p className="text-center text-2xl my-5">Keep in touch</p>
+            <p className="text-center text-2xl my-5 text-white">Keep in touch</p>
             <p className="text-center my-5">
               <a
                 className="text-center gradient-text text-2xl"
@@ -140,8 +140,8 @@ function ContactPage() {
             </p>
           </div>
         </div>
-        <div className=" w-full flex justify-center items-center flex-wrap ">
-          <p className="text-center">© 2023 - Anh Nguyen Khac Portfolio | </p>
+        <div className=" w-full flex justify-center items-center flex-wrap text-white">
+          <p className="text-center">© 2024 - Anh Nguyen Khac Portfolio | </p>
           <div className="flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -50,7 +50,7 @@ function TechnicalComponent() {
             <br />
             Thinking is forever
           </p>
-          <p className="text-xl text-center mt-5 px-5">
+          <p className="text-xl text-center mt-5 px-5 text-white">
             Technology changes every day. Update and development.
             <br />
             The technology I know. Let see
@@ -76,8 +76,8 @@ function TechnicalComponent() {
                 })
               }
             >
-              <div className="bg-shutdown z-0 transition-all absolute top-[-99%] w-[250px] h-[300px] bg-ct-primary-500" />
-              <h1 className="uppercase z-10 font-bold text-center text-4xl mb-5">
+              <div className="bg-shutdown z-0 transition-all absolute top-[-99%] w-[250px] h-[300px] text-white bg-ct-primary-500" />
+              <h1 className="uppercase z-10 font-bold text-center text-4xl mb-5 text-white">
                 Frontend
               </h1>
               <div className="grow z-10">
@@ -87,7 +87,7 @@ function TechnicalComponent() {
                   xmlnsXlink="http://www.w3.org/1999/xlink"
                   aria-hidden="true"
                   role="img"
-                  className="mx-10 iconify iconify--fluent"
+                  className="mx-10 iconify iconify--fluent text-white"
                   width={80}
                   height={80}
                   preserveAspectRatio="xMidYMid meet"
@@ -101,7 +101,7 @@ function TechnicalComponent() {
                 </svg>
               </div>
               <svg
-                className="self-start z-10"
+                className="self-start z-10 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 width={32}
                 height={32}

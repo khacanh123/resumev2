@@ -320,7 +320,7 @@
     animation: rainbow 2s ease-in-out infinite;
     background-clip: text;
     -webkit-background-clip: text;
-    color: inherit;
+    color: white;
     transition: color .2s ease-in-out
 }
 
@@ -337,7 +337,7 @@
     -webkit-background-clip: text;
     color: inherit;
     transition: color .2s ease-in-out;
-    color: #0000
+    color: #fff
 }
 
 @-webkit-keyframes rainbow {

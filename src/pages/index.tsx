@@ -36,12 +36,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeaderComponent />
+     <main className="bg-[#0f172b]">
+     <HeaderComponent />
       <IntroComponent />
       <WorkExpComponent />
       <ProjectComponent />
       <TechnicalComponent />
       <ContactPage />
+     </main>
       {/* <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <CurrentPath url1="Men" />
       <div className="flex xs:flex-col gap-3">
