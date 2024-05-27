@@ -68,7 +68,7 @@ function WorkExpComponent() {
 My personal project below`}
           </p>
           <p className="text-xl text-center mt-5 px-5 !text-white">
-          Don't let time be wasted. I'm always up to date with new technology and find cool stuff that you might like
+          {`Don't let time be wasted. I'm always up to date with new technology and find cool stuff that you might like`}
            </p>
         </div>
         <div className="w-full flex flex-wrap justify-center reveal">
