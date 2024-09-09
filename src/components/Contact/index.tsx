@@ -132,7 +132,7 @@ function ContactPage() {
                 href="tel:+84377127592"
                 style={{ letterSpacing: "2px" }}
               >
-                039 668 8458
+                0926 151 342
               </a>
             </p>
             <p className="text-center gradient-text text-2xl my-5">
